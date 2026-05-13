@@ -1,0 +1,213 @@
+.pricing-page {
+  width: 100%;
+  overflow-x: hidden;
+  background: #08111f;
+}
+
+.pricing-hero {
+  background: linear-gradient(135deg, #08111f 0%, #0a1525 50%, #08111f 100%);
+  padding: 140px 24px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(0, 212, 255, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(66, 178, 189, 0.08) 0%, transparent 50%);
+}
+
+.pricing-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.pricing-hero-title .gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #5fc7be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pricing-hero-subtitle {
+  font-size: 18px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.pricing-section {
+  padding: 60px 24px 100px;
+}
+
+.pricing-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.pricing-card {
+  background: linear-gradient(135deg, #0d1b2d, #0a1525);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #00d4ff, #42b2bd);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.4);
+}
+
+.pricing-card.combo {
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+.pricing-card.combo::before {
+  background: linear-gradient(90deg, #42b2bd, #5fc7be);
+}
+
+.pricing-card.premium {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.pricing-card.premium::before {
+  background: linear-gradient(90deg, #00d4ff, #5fc7be, #00d4ff);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.pricing-header {
+  padding: 24px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.pricing-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.best-value {
+  display: inline-block;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #00d4ff, #42b2bd);
+  color: #08111f;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 14px 20px;
+  text-align: left;
+}
+
+.pricing-table th {
+  background: rgba(0, 212, 255, 0.05);
+  color: #00d4ff;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pricing-table td {
+  color: #e5e7eb;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.06);
+}
+
+.pricing-table td.price {
+  text-align: right;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.pricing-card.combo .pricing-table td.price {
+  color: #5fc7be;
+}
+
+.pricing-card.premium .pricing-table td.price {
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+.subscribe-btn {
+  width: 90%;
+  margin: 20px auto 24px;
+  display: block;
+  background: linear-gradient(135deg, #00d4ff, #42b2bd);
+  color: #08111f;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.pricing-card.combo .subscribe-btn {
+  background: linear-gradient(135deg, #42b2bd, #5fc7be);
+  color: #08111f;
+}
+
+.pricing-card.premium .subscribe-btn {
+  background: linear-gradient(135deg, #00d4ff, #5fc7be);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .pricing-hero-title { font-size: 36px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+}
