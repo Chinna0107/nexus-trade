@@ -23,7 +23,7 @@ export default function Footer() {
             <div style={styles.logoImgWrap}>
               <img src={logo} alt="Trade Nexus" style={styles.logoImg} />
             </div>
-            <h3 style={styles.brand}>Trade<span style={styles.accent}>Nexus</span></h3>
+            <h3 style={styles.brand}>Trade Nexus<span style={styles.accent}> - Trade Smart</span></h3>
           </div>
           <p style={styles.tagline}>Your trusted partner in smart trading and financial growth.</p>
           <div style={styles.socials}>
@@ -88,7 +88,7 @@ export default function Footer() {
           <h4 style={styles.colTitle}>Contact Us</h4>
           {[
             { icon: '📍', content: 'HSR Layout, 7th Sector,\nNear 5th Main Road,\nNear Reliance Digital,\nBangalore – 560102', isText: true },
-            { icon: '📞', content: '+91 9959668406', href: 'tel:+919959668406' },
+            { icon: '📞', content: '+91 8333909139', href: 'tel:+918333909139' },
             { icon: '✉️', content: 'info@tradenexus.com', href: 'mailto:info@tradenexus.com' },
           ].map((item, i) => (
             <div key={i} style={styles.contactItem}>
@@ -109,7 +109,7 @@ export default function Footer() {
 
       <div style={styles.divider} />
       <div style={styles.bottom}>
-        <p style={styles.copy}>© {new Date().getFullYear()} Trade Nexus. All rights reserved.</p>
+        <p style={styles.copy}>© {new Date().getFullYear()} Trade Nexus - Trade Smart. All rights reserved.</p>
         <div style={styles.bottomLinks}>
           {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map(item => (
             <a key={item} href="#" style={styles.bottomLink}

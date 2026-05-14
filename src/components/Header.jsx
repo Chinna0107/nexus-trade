@@ -26,10 +26,10 @@ export default function Header({ onNavigate }) {
           {/* LOGO */}
           <div className="logo-wrap" onClick={() => handleNavClick('Home')}>
             <div className="logo-img-wrap">
-              <img src={logo} alt="Trade Nexus" className="logo-img" />
+              <img src={logo} alt="Trade Nexus Trade Smart" className="logo-img" />
             </div>
             <span className="logo-text">
-              Trade<span className="logo-accent">Nexus</span>
+              Trade Nexus<span className="logo-accent"> - Trade Smart</span>
             </span>
           </div>
 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaPhone, FaEnvelope, FaClock, FaUser, FaComment, FaMapMarkerAlt, FaPaperPlane, FaWhatsapp } from 'react-icons/fa'
 import './Contact.css'
 
-const WA_NUMBER = '919959668406'
+const WA_NUMBER = '918333909139'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })

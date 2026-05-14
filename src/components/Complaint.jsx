@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaExclamationTriangle, FaUser, FaEnvelope, FaPhone, FaListAlt, FaHeading, FaCommentDots, FaPaperPlane, FaClock, FaCheckCircle, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'
 import './Complaint.css'
 
-const WA_NUMBER = '919959668406'
+const WA_NUMBER = '918333909139'
 
 export default function Complaint() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', type: '', subject: '', description: '' })
