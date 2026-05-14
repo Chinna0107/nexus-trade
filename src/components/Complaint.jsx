@@ -137,14 +137,14 @@ export default function Complaint() {
                     <span className="urgent-icon"><FaPhoneAlt /></span>
                     <div>
                       <span className="urgent-label">Call Us</span>
-                      <a href="tel:+919959668406" className="urgent-value">+91 99596 68406</a>
+                      <a href="tel:+918333909139" className="urgent-value">+91 83339 09139</a>
                     </div>
                   </div>
                   <div className="urgent-item">
                     <span className="urgent-icon"><FaWhatsapp /></span>
                     <div>
                       <span className="urgent-label">WhatsApp</span>
-                      <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noreferrer" className="urgent-value">+91 99596 68406</a>
+                      <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noreferrer" className="urgent-value">+91 83339 09139</a>
                     </div>
                   </div>
                   <div className="urgent-item">

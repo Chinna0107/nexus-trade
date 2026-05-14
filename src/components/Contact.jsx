@@ -88,13 +88,13 @@ export default function Contact() {
                   {
                     icon: <FaPhone />,
                     label: 'Phone',
-                    content: '+91 99596 68406',
-                    href: 'tel:+919959668406',
+                    content: '+91 918333909139',
+                    href: 'tel:+91918333909139',
                   },
                   {
                     icon: <FaWhatsapp />,
                     label: 'WhatsApp',
-                    content: '+91 99596 68406',
+                    content: '+91 918333909139',
                     href: `https://wa.me/${WA_NUMBER}`,
                   },
                   {
