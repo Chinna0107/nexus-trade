@@ -439,9 +439,9 @@ export default function Home({ onNavigate }) {
               ].map((text, i) => (
                 <p key={i}>{text}</p>
               ))}
-              <p className="text-[#00d4ff] font-semibold mt-4">
+              {/* <p className="text-[#00d4ff] font-semibold mt-4">
                 🎉 We are happy to announce that our company has undergone a rebranding initiative and changed its name from Finnovest Advisory to Trade Nexus effective from 24th Aug 2023.
-              </p>
+              </p> */}
             </div>
           </motion.div>
         </div>

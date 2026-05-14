@@ -88,13 +88,13 @@ export default function Contact() {
                   {
                     icon: <FaPhone />,
                     label: 'Phone',
-                    content: '+91 919483001083',
-                    href: 'tel:+91919483001083',
+                    content: '+91 9483001083',
+                    href: 'tel:+919483001083',
                   },
                   {
                     icon: <FaWhatsapp />,
                     label: 'WhatsApp',
-                    content: '+91 919483001083',
+                    content: '+91 9483001083',
                     href: `https://wa.me/${WA_NUMBER}`,
                   },
                   {
