@@ -431,7 +431,7 @@ export default function Home({ onNavigate }) {
             </h2>
             <div className="space-y-5 text-gray-300 leading-9 text-base">
               {[
-                "[1] SEBI Registration Number: INH200008024.",
+                "[1] SEBI Registration Number: INH200004826.",
                 "[2] Official website: www.tradenexus.com",
                 "[3] We Do Not Offer Any Assured / Guaranteed / Profit Sharing / Demat Account / Broking Services / Portfolio Management Services.",
                 "[4] We accept payments only in registered BANK ACCOUNT.",
