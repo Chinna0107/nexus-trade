@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaExclamationTriangle, FaUser, FaEnvelope, FaPhone, FaListAlt, FaHeading, FaCommentDots, FaPaperPlane, FaClock, FaCheckCircle, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'
 import './Complaint.css'
 
-const WA_NUMBER = '918333909139'
+const WA_NUMBER = '919483001083'
 
 export default function Complaint() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', type: '', subject: '', description: '' })
@@ -137,14 +137,14 @@ export default function Complaint() {
                     <span className="urgent-icon"><FaPhoneAlt /></span>
                     <div>
                       <span className="urgent-label">Call Us</span>
-                      <a href="tel:+918333909139" className="urgent-value">+91 83339 09139</a>
+                      <a href="tel:+919483001083" className="urgent-value">+91 94830 01083</a>
                     </div>
                   </div>
                   <div className="urgent-item">
                     <span className="urgent-icon"><FaWhatsapp /></span>
                     <div>
                       <span className="urgent-label">WhatsApp</span>
-                      <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noreferrer" className="urgent-value">+91 83339 09139</a>
+                      <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noreferrer" className="urgent-value">+91 94830 01083</a>
                     </div>
                   </div>
                   <div className="urgent-item">

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaPhone, FaEnvelope, FaClock, FaUser, FaComment, FaMapMarkerAlt, FaPaperPlane, FaWhatsapp } from 'react-icons/fa'
 import './Contact.css'
 
-const WA_NUMBER = '918333909139'
+const WA_NUMBER = '919483001083'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
@@ -88,13 +88,13 @@ export default function Contact() {
                   {
                     icon: <FaPhone />,
                     label: 'Phone',
-                    content: '+91 918333909139',
-                    href: 'tel:+91918333909139',
+                    content: '+91 919483001083',
+                    href: 'tel:+91919483001083',
                   },
                   {
                     icon: <FaWhatsapp />,
                     label: 'WhatsApp',
-                    content: '+91 918333909139',
+                    content: '+91 919483001083',
                     href: `https://wa.me/${WA_NUMBER}`,
                   },
                   {

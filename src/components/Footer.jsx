@@ -88,7 +88,7 @@ export default function Footer() {
           <h4 style={styles.colTitle}>Contact Us</h4>
           {[
             { icon: '📍', content: 'HSR Layout, 7th Sector,\nNear 5th Main Road,\nNear Reliance Digital,\nBangalore – 560102', isText: true },
-            { icon: '📞', content: '+91 8333909139', href: 'tel:+918333909139' },
+            { icon: '📞', content: '+91 919483001083', href: 'tel:+91919483001083' },
             { icon: '✉️', content: 'info@tradenexus.com', href: 'mailto:info@tradenexus.com' },
           ].map((item, i) => (
             <div key={i} style={styles.contactItem}>
