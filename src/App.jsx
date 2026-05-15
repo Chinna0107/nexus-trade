@@ -11,12 +11,21 @@ import Complaint from './components/Complaint'
 import './App.css'
 
 const pageTitles = {
-  '/':           'Trade Nexus - Smart Trading Research Solutions',
-  '/about':      'About Us | Trade Nexus',
-  '/services':   'Our Services | Trade Nexus',
-  '/pricing':    'Pricing Plans | Trade Nexus',
-  '/contact':    'Contact Us | Trade Nexus',
+  '/':           'Trade Nexus - Smart Trading Research Solutions | SEBI Registered',
+  '/about':      'About Us | Trade Nexus - SEBI Registered Research Analyst',
+  '/services':   'Our Services | Stock Cash, Options & Index Trading | Trade Nexus',
+  '/pricing':    'Pricing Plans | Affordable Trading Packages | Trade Nexus',
+  '/contact':    'Contact Us | Trade Nexus - Get in Touch',
   '/complaints': 'Submit a Complaint | Trade Nexus',
+}
+
+const pageDescriptions = {
+  '/':           'Trade Nexus is a SEBI registered research analyst providing high-accuracy stock market recommendations in Equity, Derivatives and Index Options for NSE & BSE traders.',
+  '/about':      'Learn about Trade Nexus — a SEBI registered financial market research company providing intraday and delivery calls in Stock cash and F&O.',
+  '/services':   'Explore Trade Nexus services: Stock Cash, Stock Options, Index Options and combo packages for intraday and delivery trading.',
+  '/pricing':    'View Trade Nexus pricing plans for Stock Cash, Stock Options and Index Options — monthly, quarterly, half-yearly and yearly packages.',
+  '/contact':    'Contact Trade Nexus for stock market research and trading recommendations. Reach us via WhatsApp, phone or email.',
+  '/complaints': 'Submit a complaint to Trade Nexus. We acknowledge all complaints within 24 hours and resolve within 7-14 business days.',
 }
 
 const pageRoutes = {
@@ -34,6 +43,12 @@ function AppContent() {
 
   useEffect(() => {
     document.title = pageTitles[location.pathname] || 'Trade Nexus'
+    // Update meta description
+    let metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) metaDesc.setAttribute('content', pageDescriptions[location.pathname] || pageDescriptions['/'])
+    // Update canonical
+    let canonical = document.querySelector('link[rel="canonical"]')
+    if (canonical) canonical.setAttribute('href', `https://tradenexustradesmart.com${location.pathname}`)
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [location.pathname])
 
