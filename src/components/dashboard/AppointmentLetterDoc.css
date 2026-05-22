@@ -1,0 +1,597 @@
+/* Premium Appointment Letter Creator Stylesheet */
+
+.creator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #d1d5db;
+}
+
+/* Header bar styling */
+.creator-header-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+  .creator-header-row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.creator-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.creator-back-btn {
+  padding: 10px;
+  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  color: #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.creator-back-btn:hover {
+  background: #1f2937;
+  color: #00d4ff;
+  border-color: #00d4ff;
+}
+
+.creator-heading {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.creator-subheading {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 4px 0 0 0;
+}
+
+.creator-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.creator-btn-reset {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  color: #d1d5db;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.creator-btn-reset:hover {
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.creator-btn-print {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #42b2bd, #00d4ff);
+  border: none;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 750;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
+  transition: all 0.3s;
+}
+
+.creator-btn-print:hover {
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Page Grid workspace layout */
+.creator-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .creator-workspace-grid {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+/* Parameters Panel inputs card */
+.parameters-panel {
+  background: #0d1b2d;
+  border: 1px solid rgba(31, 41, 55, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.parameters-panel-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 10px;
+  margin: 0 0 4px 0;
+}
+
+.param-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.param-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.param-label svg {
+  color: #00d4ff;
+}
+
+.param-input {
+  width: 100%;
+  background: #0a1525;
+  border: 1px solid rgba(75, 85, 99, 0.6);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.param-input:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.param-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Instructions card */
+.instructions-card {
+  background: rgba(10, 21, 37, 0.8);
+  border: 1px solid rgba(31, 41, 55, 0.8);
+  border-radius: 16px;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.instructions-card-header {
+  font-weight: 750;
+  color: #00d4ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.instructions-card-header svg {
+  color: #10b981;
+}
+
+.instructions-text {
+  margin: 0;
+}
+
+/* Preview Workspace area */
+.preview-workspace {
+  background: rgba(10, 21, 37, 0.5);
+  border: 1px solid rgba(31, 41, 55, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.a4-pages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+}
+
+.a4-page-number-footer {
+  font-size: 9px;
+  font-weight: 800;
+  color: #9ca3af;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 1px dashed rgba(14, 17, 52, 0.1);
+  padding-top: 8px;
+}
+
+/* A4 Page structure simulation on screen */
+.a4-page-frame {
+  width: 794px;
+  min-height: 1123px;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 48px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Watermark */
+.a4-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+}
+
+.a4-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Inner content area */
+.a4-content-wrap {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Letter header */
+.a4-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.a4-logo-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(14, 17, 52, 0.15);
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.a4-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.a4-logo-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.a4-logo-title {
+  font-size: 23px;
+  font-weight: 900;
+  color: #0e1134;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.a4-logo-subtitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: #42b2bd;
+  letter-spacing: 0.2em;
+  margin: 2px 0 0 0;
+  text-transform: uppercase;
+}
+
+.a4-header-line {
+  height: 2px;
+  background: linear-gradient(90deg, #0e1134, #42b2bd, transparent);
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* Reference number and Date line */
+.a4-date-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 11.5px;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.a4-date-row span {
+  font-weight: 800;
+  color: #111827;
+}
+
+/* Recipient details and Subject block */
+.a4-subject-block {
+  margin-bottom: 24px;
+}
+
+.a4-recipient-address {
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: #4b5563;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.a4-recipient-address span {
+  font-weight: 800;
+  color: #111827;
+}
+
+.a4-subject-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: #0e1134;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 2px solid #42b2bd;
+  padding-left: 14px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Body content layout */
+.a4-letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #4b5563;
+  text-align: justify;
+}
+
+.a4-letter-body p {
+  margin: 0;
+}
+
+.a4-bold-text {
+  font-weight: 800;
+  color: #111827;
+}
+
+.a4-role-highlight {
+  font-weight: 800;
+  color: #0e1134;
+}
+
+/* Clause blocks styling */
+.a4-clause-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.a4-clause-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.a4-clause-title {
+  font-weight: 800;
+  color: #0e1134;
+}
+
+.a4-clause-desc {
+  padding-left: 16px;
+  margin: 0;
+}
+
+/* Structured Salary table design */
+.a4-salary-table {
+  width: 85%;
+  margin: 10px auto;
+  border-collapse: collapse;
+  border: 1px solid #d1d5db;
+  font-size: 10px;
+}
+
+.a4-salary-table thead tr {
+  background: #f3f4f6;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.a4-salary-table th {
+  padding: 4px 12px;
+  font-weight: 800;
+  color: #0e1134;
+  text-align: left;
+  border-right: 1px solid #d1d5db;
+}
+
+.a4-salary-table th:last-child {
+  border-right: none;
+}
+
+.a4-salary-table th.text-right,
+.a4-salary-table td.text-right {
+  text-align: right;
+}
+
+.a4-salary-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.a4-salary-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.a4-salary-table td {
+  padding: 4px 12px;
+  color: #4b5563;
+  border-right: 1px solid #d1d5db;
+}
+
+.a4-salary-table td:last-child {
+  border-right: none;
+}
+
+.a4-salary-table td.font-semibold {
+  font-weight: 600;
+}
+
+.a4-salary-table td.font-bold {
+  font-weight: 800;
+  color: #030712;
+}
+
+.a4-salary-table .total-row {
+  background: rgba(249, 250, 251, 0.8);
+  font-weight: 800;
+  border-t: 1px solid #d1d5db;
+  color: #0e1134;
+}
+
+.a4-salary-table .total-row td {
+  padding: 6px 12px;
+  font-size: 10.5px;
+}
+
+/* Signatures section */
+.a4-sign-off-section {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 10px;
+}
+
+.a4-signature-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.a4-sig-label {
+  color: #4b5563;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.a4-sig-space {
+  height: 40px;
+}
+
+.a4-sig-name {
+  font-weight: 800;
+  color: #111827;
+  margin-top: 4px;
+}
+
+.a4-sig-title {
+  color: #9ca3af;
+  font-weight: 800;
+  font-size: 8.5px;
+}
+
+.a4-sig-line {
+  width: 144px;
+  border-top: 1px solid #9ca3af;
+  margin-top: 4px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Printing styles integration */
+@media print {
+  body, html, #root {
+    background: #ffffff !important;
+  }
+  .no-print,
+  .creator-header-row,
+  .parameters-panel,
+  .instructions-card,
+  .creator-workspace-grid > :first-child {
+    display: none !important;
+  }
+  .creator-workspace-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
+  .preview-workspace {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .a4-page-frame {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 auto !important;
+    page-break-after: always !important;
+  }
+}

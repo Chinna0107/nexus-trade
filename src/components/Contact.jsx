@@ -100,8 +100,8 @@ export default function Contact() {
                   {
                     icon: <FaEnvelope />,
                     label: 'Email',
-                    content: 'info@tradenexus.com',
-                    href: 'mailto:info@tradenexus.com',
+                    content: 'info@tradenexustradesmart.com',
+                    href: 'mailto:info@tradenexustradesmart.com',
                   },
                   {
                     icon: <FaClock />,

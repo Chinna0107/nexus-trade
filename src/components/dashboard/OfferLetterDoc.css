@@ -1,0 +1,744 @@
+/* Premium Offer Letter Creator Stylesheet */
+
+.creator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #d1d5db;
+}
+
+/* Header bar styling */
+.creator-header-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+  .creator-header-row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.creator-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.creator-back-btn {
+  padding: 10px;
+  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  color: #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.creator-back-btn:hover {
+  background: #1f2937;
+  color: #00d4ff;
+  border-color: #00d4ff;
+}
+
+.creator-heading {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.creator-subheading {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 4px 0 0 0;
+}
+
+.creator-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.creator-btn-reset {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  color: #d1d5db;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.creator-btn-reset:hover {
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.creator-btn-print {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #42b2bd, #00d4ff);
+  border: none;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 750;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
+  transition: all 0.3s;
+}
+
+.creator-btn-print:hover {
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Page Grid workspace layout */
+.creator-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .creator-workspace-grid {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+/* Parameters Panel inputs card */
+.parameters-panel {
+  background: #0d1b2d;
+  border: 1px solid rgba(31, 41, 55, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.parameters-panel-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 10px;
+  margin: 0 0 4px 0;
+}
+
+.param-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.param-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.param-label svg {
+  color: #00d4ff;
+}
+
+.param-input {
+  width: 100%;
+  background: #0a1525;
+  border: 1px solid rgba(75, 85, 99, 0.6);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.param-input:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.param-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Instructions card */
+.instructions-card {
+  background: rgba(10, 21, 37, 0.8);
+  border: 1px solid rgba(31, 41, 55, 0.8);
+  border-radius: 16px;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.instructions-card-header {
+  font-weight: 750;
+  color: #00d4ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.instructions-card-header svg {
+  color: #10b981;
+}
+
+.instructions-text {
+  margin: 0;
+}
+
+/* Preview Workspace area */
+.preview-workspace {
+  background: rgba(10, 21, 37, 0.5);
+  border: 1px solid rgba(31, 41, 55, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+/* A4 Page structure simulation on screen */
+.a4-page-frame {
+  width: 794px;
+  min-height: 1123px;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 36px 38px 0 38px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Watermark */
+.a4-watermark {
+  position: absolute;
+  top: 78%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 318px;
+  height: 318px;
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.a4-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Geometric details - exact replication using high quality CSS */
+.a4-top-geometric {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 180px;
+  pointer-events: none;
+}
+
+/* Inner content area */
+.a4-content-wrap {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 80px);
+  justify-content: flex-start;
+  padding-bottom: 112px;
+  box-sizing: border-box;
+}
+
+/* Letter header */
+.a4-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 0 0 16px 10px;
+}
+
+.a4-logo-wrap {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  border: 1px solid rgba(14, 17, 52, 0.15);
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.a4-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.a4-logo-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.a4-logo-title {
+  font-size: 37px;
+  font-weight: 900;
+  color: #0e1134;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 5px;
+}
+
+.a4-logo-subtitle {
+  font-size: 15px;
+  font-weight: 800;
+  color: #42b2bd;
+  letter-spacing: 0.34em;
+  margin: 8px 0 0 2px;
+  text-transform: uppercase;
+}
+
+.a4-header-line {
+  height: 1.5px;
+  background: #0e1134;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.a4-date-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+  padding-right: 48px;
+  font-size: 15px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.a4-date-row span {
+  font-weight: 800;
+  color: #111827;
+}
+
+.a4-subject-title {
+  text-align: center;
+  margin-bottom: 28px;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.a4-subject-title h1 {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0e1134;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.a4-subject-line {
+  height: 2.5px;
+  background: #42b2bd;
+  width: 82px;
+  margin: 10px auto 0 auto;
+}
+
+/* Letter core body text paragraphs */
+.a4-letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 655px;
+  margin-left: 28px;
+  font-size: 15px;
+  line-height: 1.48;
+  color: #111827;
+  text-align: justify;
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+.a4-candidate-highlight {
+  font-weight: 800;
+  color: #111827;
+}
+
+.a4-company-highlight {
+  font-weight: 800;
+  color: #111827;
+}
+
+.a4-role-highlight {
+  font-weight: 800;
+  color: #0e1134;
+}
+
+/* Inset parameter parameters list box */
+.a4-details-box {
+  padding: 0;
+  margin: 6px 0 2px 0;
+  border-left: none;
+  background: transparent;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.a4-details-row {
+  display: grid;
+  grid-template-columns: 185px 1fr;
+  font-size: 15px;
+}
+
+.a4-details-label {
+  font-weight: 800;
+  color: #111827;
+}
+
+.a4-details-val {
+  color: #111827;
+}
+
+.a4-details-val-accent {
+  font-weight: 800;
+  color: #0e1134;
+}
+
+.a4-terms-title {
+  font-weight: 800;
+  color: #111827;
+  margin-top: 6px;
+}
+
+.a4-terms-list {
+  list-style-type: disc;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: -6px 0 0 0;
+}
+
+.a4-terms-list li {
+  color: #111827;
+  padding-left: 7px;
+}
+
+.a4-letter-closing {
+  margin-top: 6px;
+}
+
+/* ============================= */
+/* Signature & HR Section */
+/* ============================= */
+
+.a4-sign-off-section {
+  margin-top: 18px;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Warm regards */
+.a4-closing-salute {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Signature wrapper */
+.a4-signature-frame {
+  width: 154px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+}
+
+/* Signature image */
+.a4-signature-frame img {
+  width: 154px;
+  height: 42px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+/* Underline */
+.a4-signature-underline {
+  width: 180px;
+  border-bottom: 1.5px solid #111827;
+  margin-bottom: 6px;
+}
+
+/* HR info container */
+.a4-hr-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.25;
+}
+
+/* HR name */
+.a4-hr-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111827;
+}
+
+/* HR designation */
+.a4-hr-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Company name */
+.a4-hr-comp {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Bottom banner shape */
+.a4-bottom-geometric-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 92px;
+  background: #0e1134;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+/* ============================= */
+/* FOOTER MAP ICON FIX */
+/* ============================= */
+
+/* ============================= */
+/* FOOTER MAP ICON FIX */
+/* ============================= */
+
+.a4-bottom-address-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.a4-pin-frame {
+  width: 42px;
+  height: 42px;
+
+  min-width: 42px;
+  min-height: 42px;
+
+  border-radius: 50%;
+
+  background: rgba(66, 178, 189, 0.2);
+  border: 1px solid rgba(66, 178, 189, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  padding: 0;
+}
+
+.a4-pin-frame svg {
+  width: 12px !important;
+  height: 15px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+}
+
+
+/* ============================= */
+/* REMOVE GREEN VERTICAL LINE */
+/* ============================= */
+
+.a4-subject-line {
+  display: none;
+}
+.a4-address-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d1d5db;
+  line-height: 1.45;
+}
+
+.a4-bottom-right-geometric {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 275px;
+  height: 92px;
+  z-index: 0;
+}
+
+/* Printing styles integration */
+/* ============================= */
+/* PRINT FIX - LEFT ALIGN SIGNATURE SECTION */
+/* ============================= */
+
+@media print {
+
+  .a4-sign-off-section {
+    margin-top: 18px !important;
+    margin-left: 0 !important;
+
+    width: 260px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+
+    text-align: left !important;
+
+    position: relative !important;
+    left: 0 !important;
+  }
+
+  .a4-closing-salute {
+    text-align: left !important;
+    white-space: nowrap !important;
+    margin-bottom: 6px !important;
+  }
+
+  .a4-signature-frame {
+    width: 154px !important;
+    height: 42px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    align-self: flex-start !important;
+
+    margin-bottom: 2px !important;
+  }
+
+  .a4-signature-frame img {
+    width: 154px !important;
+    height: 42px !important;
+
+    object-fit: contain !important;
+    object-position: left center !important;
+
+    display: block !important;
+  }
+
+  .a4-signature-underline {
+    width: 180px !important;
+
+    border-bottom: 1.5px solid #111827 !important;
+
+    margin-bottom: 6px !important;
+
+    align-self: flex-start !important;
+  }
+
+  .a4-hr-meta {
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    text-align: left !important;
+
+    gap: 2px !important;
+    line-height: 1.25 !important;
+  }
+
+  .a4-hr-name,
+  .a4-hr-title,
+  .a4-hr-comp {
+    text-align: left !important;
+  }
+
+}
+/* REMOVE LEFT VERTICAL LINE NEAR DEAR DAVOOD */
+
+.a4-details-box {
+  border-left: none !important;
+}
+
+.a4-letter-body {
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+.a4-letter-body::before,
+.a4-letter-body::after,
+.a4-details-box::before,
+.a4-details-box::after {
+  display: none !important;
+  content: none !important;
+}

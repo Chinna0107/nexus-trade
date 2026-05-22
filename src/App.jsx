@@ -8,6 +8,9 @@ import Services from './components/Services'
 import Pricing from './components/Pricing'
 import Contact from './components/Contact'
 import Complaint from './components/Complaint'
+import ProtectedRoute from './components/ProtectedRoute'
+import Login from './components/Login'
+import Dashboard from './components/Dashboard'
 import './App.css'
 
 const pageTitles = {
@@ -17,6 +20,8 @@ const pageTitles = {
   '/pricing':    'Pricing Plans | Affordable Trading Packages | Trade Nexus',
   '/contact':    'Contact Us | Trade Nexus - Get in Touch',
   '/complaints': 'Submit a Complaint | Trade Nexus',
+  '/login':      'Admin Login | Trade Nexus',
+  '/dashboard':  'Admin Dashboard | Trade Nexus - Trade Smart',
 }
 
 const pageDescriptions = {
@@ -26,6 +31,8 @@ const pageDescriptions = {
   '/pricing':    'View Trade Nexus pricing plans for Stock Cash, Stock Options and Index Options — monthly, quarterly, half-yearly and yearly packages.',
   '/contact':    'Contact Trade Nexus for stock market research and trading recommendations. Reach us via WhatsApp, phone or email.',
   '/complaints': 'Submit a complaint to Trade Nexus. We acknowledge all complaints within 24 hours and resolve within 7-14 business days.',
+  '/login':      'Secure administration login for Trade Nexus.',
+  '/dashboard':  'Trade Nexus administration and document portal.',
 }
 
 const pageRoutes = {
@@ -35,11 +42,15 @@ const pageRoutes = {
   pricing:    '/pricing',
   contact:    '/contact',
   complaints: '/complaints',
+  login:      '/login',
+  dashboard:  '/dashboard',
 }
 
 function AppContent() {
   const navigate = useNavigate()
   const location = useLocation()
+
+  const isAdminRoute = location.pathname === '/login' || location.pathname === '/dashboard'
 
   useEffect(() => {
     document.title = pageTitles[location.pathname] || 'Trade Nexus'
@@ -58,7 +69,7 @@ function AppContent() {
 
   return (
     <>
-      <Header onNavigate={handleNavigate} />
+      {!isAdminRoute && <Header onNavigate={handleNavigate} />}
       <Routes>
         <Route path="/"           element={<Home onNavigate={handleNavigate} />} />
         <Route path="/about"      element={<About />} />
@@ -66,9 +77,11 @@ function AppContent() {
         <Route path="/pricing"    element={<Pricing />} />
         <Route path="/contact"    element={<Contact />} />
         <Route path="/complaints" element={<Complaint />} />
+        <Route path="/login"      element={<Login />} />
+        <Route path="/dashboard"  element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="*"           element={<Home onNavigate={handleNavigate} />} />
       </Routes>
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </>
   )
 }

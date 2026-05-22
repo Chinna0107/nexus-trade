@@ -1,0 +1,561 @@
+/* Print styles for Trade Nexus Document Dashboard */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Suppress all general web layout frames */
+  body, html, #root {
+    background: #ffffff !important;
+    color: #000000 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force background graphic colors to display in standard prints */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-scheme: light !important;
+  }
+
+  body.dashboard-print-mode * {
+    visibility: hidden !important;
+  }
+
+  body.dashboard-print-mode .no-print-container,
+  body.dashboard-print-mode .no-print-container *,
+  body.dashboard-print-mode .a4-pages-container,
+  body.dashboard-print-mode [id^="print-sheet"],
+  body.dashboard-print-mode [id^="print-sheet"] * {
+    visibility: visible !important;
+  }
+
+  body.dashboard-print-mode .dash-container,
+  body.dashboard-print-mode .dash-main-canvas,
+  body.dashboard-print-mode .dash-content-wrapper,
+  body.dashboard-print-mode .creator-container,
+  body.dashboard-print-mode .creator-workspace-grid {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  /* Hide navigation bars, control dashboards, footer links, forms */
+  .no-print,
+  aside,
+  header,
+  footer,
+  button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Expose only the active printable sheet container, filling A4 area */
+  .no-print-container {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .a4-pages-container {
+    display: block !important;
+    width: 210mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* Re-format document paper sheet for high-resolution standard print page sizing */
+  [id^="print-sheet"] {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 20mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-sizing: border-box !important;
+    page-break-after: always !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  /* Re-enable display of background gradient geometric structures in print engines */
+  .no-print-bg,
+  .no-print-bg * {
+    display: block !important;
+  }
+
+  /* Disable page break hazards on tables or signature fields */
+  table, tr, td, th {
+    page-break-inside: avoid !important;
+  }
+
+  .signature-block,
+  .footer-block {
+    page-break-inside: avoid !important;
+  }
+}
+
+/* Screen overrides to create elegant layouts */
+@media screen {
+  .no-print-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .dash-container {
+    min-height: 100vh;
+    background-color: #08111f;
+    display: flex;
+    flex-direction: column;
+    color: #d1d5db;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .dash-container {
+      padding-top: 64px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .dash-container {
+      flex-direction: row;
+    }
+  }
+
+  /* Mobile Header */
+  .dash-header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background-color: #0d1b2d;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    width: 100%;
+    z-index: 30;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  @media (min-width: 768px) {
+    .dash-header-mobile {
+      display: none !important;
+    }
+  }
+
+  .dash-mobile-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dash-mobile-logo-frame {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 1px;
+    background: linear-gradient(135deg, #00d4ff, #42b2bd);
+  }
+
+  .dash-mobile-logo-text {
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  .dash-mobile-logo-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .dash-menu-toggle-btn {
+    padding: 8px;
+    color: #00d4ff;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dash-menu-toggle-btn:hover {
+    background-color: rgba(31, 41, 55, 0.6);
+  }
+
+  /* Mobile Backdrop Overlay */
+  .dash-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 40;
+  }
+
+  @media (min-width: 768px) {
+    .dash-sidebar-backdrop {
+      display: none !important;
+    }
+  }
+
+  /* Sidebar aside */
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: #0d1b2d;
+    border-right: 1px solid rgba(31, 41, 55, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 50;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .dash-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 260px;
+      transform: none !important;
+    }
+    .dash-main-canvas {
+      margin-left: 260px;
+    }
+  }
+
+  .dash-sidebar-open {
+    transform: translateX(0);
+  }
+
+  .dash-sidebar-closed {
+    transform: translateX(-200%);
+  }
+
+  @media (min-width: 768px) {
+    .dash-sidebar-closed {
+      transform: none;
+    }
+  }
+
+  .dash-sidebar-scroll-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  /* Sidebar header details */
+  .dash-profile-header {
+    padding: 24px;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dash-profile-logo-frame {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 2px;
+    background: linear-gradient(135deg, #00d4ff, #42b2bd);
+    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.15);
+    flex-shrink: 0;
+  }
+
+  .dash-profile-logo-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .dash-profile-details {
+    min-width: 0;
+  }
+
+  .dash-profile-title {
+    font-size: 14px;
+    font-weight: 750;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.25;
+  }
+
+  .dash-profile-badge {
+    font-size: 10px;
+    color: #6b7280;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .dash-profile-badge svg {
+    color: #00d4ff;
+  }
+
+  /* Navigation Menu */
+  .dash-nav-menu {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .dash-nav-section-title {
+    font-size: 10px;
+    font-weight: 800;
+    color: #4b5563;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 12px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .dash-nav-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    border-left: 4px solid transparent;
+    color: #9ca3af;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  .dash-nav-btn:hover {
+    color: #ffffff;
+    background-color: rgba(31, 41, 55, 0.4);
+  }
+
+  .dash-nav-btn-active {
+    background: linear-gradient(90deg, rgba(0, 212, 255, 0.08), rgba(66, 178, 189, 0.03));
+    color: #00d4ff;
+    border-left-color: #00d4ff;
+    padding-left: 10px;
+  }
+
+  .dash-nav-btn-active:hover {
+    color: #00d4ff;
+    background: linear-gradient(90deg, rgba(0, 212, 255, 0.08), rgba(66, 178, 189, 0.03));
+  }
+
+  .dash-nav-btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dash-nav-btn-icon {
+    font-size: 16px;
+    color: #6b7280;
+    transition: color 0.3s;
+  }
+
+  .dash-nav-btn-active .dash-nav-btn-icon {
+    color: #00d4ff;
+  }
+
+  .dash-nav-btn:hover:not(.dash-nav-btn-active) .dash-nav-btn-icon {
+    color: #d1d5db;
+  }
+
+  .dash-nav-btn-arrow {
+    font-size: 9px;
+    color: #00d4ff;
+  }
+
+  /* Sidebar Footer buttons */
+  .dash-sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid rgba(31, 41, 55, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: rgba(10, 21, 37, 0.4);
+  }
+
+  .dash-action-btn-secondary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #9ca3af;
+    background: transparent;
+    border: 1px solid rgba(31, 41, 55, 0.8);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .dash-action-btn-secondary:hover {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.3);
+    background-color: rgba(0, 212, 255, 0.04);
+  }
+
+  .dash-action-btn-danger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    font-weight: 750;
+    color: #fca5a5;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .dash-action-btn-danger:hover {
+    color: #ffffff;
+    background-color: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  /* Main Canvas Panel */
+  .dash-main-canvas {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    position: relative;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    .dash-main-canvas {
+      padding: 32px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .dash-main-canvas {
+      padding: 40px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dash-main-canvas {
+      padding: 48px;
+    }
+  }
+
+  /* Canvas glow filters */
+  .dash-ambient-glow-1 {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: rgba(0, 212, 255, 0.05);
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .dash-ambient-glow-2 {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: rgba(66, 178, 189, 0.03);
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .dash-content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+}

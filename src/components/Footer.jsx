@@ -8,6 +8,7 @@ const quickLinks = [
   { label: 'Pricing',     path: '/pricing' },
   { label: 'Contact',     path: '/contact' },
   { label: 'Complaints',  path: '/complaints' },
+  { label: 'Admin Portal', path: '/login' },
 ]
 const services = ['Stock Trading', 'Forex Trading', 'Commodity Trading', 'Portfolio Management', 'Market Analysis']
 
@@ -89,7 +90,7 @@ export default function Footer() {
           {[
             { icon: '📍', content: 'HSR Layout, 7th Sector,\nNear 5th Main Road,\nNear Reliance Digital,\nBangalore – 560102', isText: true },
             { icon: '📞', content: '+91 919483001083', href: 'tel:+91919483001083' },
-            { icon: '✉️', content: 'info@tradenexus.com', href: 'mailto:info@tradenexus.com' },
+            { icon: '✉️', content: 'info@tradenexustradesmart.com', href: 'mailto:info@tradenexustradesmart.com' },
           ].map((item, i) => (
             <div key={i} style={styles.contactItem}>
               <span style={styles.contactIcon}>{item.icon}</span>
