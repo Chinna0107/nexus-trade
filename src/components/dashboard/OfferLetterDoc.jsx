@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FaPrint, FaChevronLeft, FaUndo, FaCheckCircle, FaUser, FaBriefcase, FaCalendarAlt, FaMapMarkerAlt, FaSignature } from 'react-icons/fa'
 import logo from '../../assets/logo.jpeg'
-import offerSignature from '../../assets/offer-signature.jpeg'
+import offerSignature from '../../assets/sign2.png'
 import { printDashboardDocument } from '../../utils/printDocument'
 import './OfferLetterDoc.css'
 
