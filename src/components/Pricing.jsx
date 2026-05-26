@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { FaCheckCircle, FaTimes, FaSpinner, FaPrint, FaCreditCard, FaFileInvoice, FaArrowRight, FaArrowLeft, FaIdCard, FaPhone, FaEnvelope, FaUser, FaMapMarkerAlt } from 'react-icons/fa'
 import logo from '../assets/logo.jpeg'
+import { API_BASE_URL, RAZORPAY_KEY_ID } from '../config/env'
 import './Pricing.css'
 
 const pricingData = [
   {
     category: 'Stock cash',
     plans: [
-      { duration: 'Monthly', price: '₹ 17000/-' },
+      { duration: 'Monthly', price: '₹ 1/-' },
       { duration: 'Quarterly', price: '₹ 44500/-' },
       { duration: 'Half Yearly', price: '₹ 91800/-' },
       { duration: 'Yearly', price: '₹ 165000/-' },
@@ -176,10 +177,7 @@ export default function Pricing() {
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
-      if (window.Razorpay) {
-        resolve(true)
-        return
-      }
+      if (window.Razorpay) { resolve(true); return }
       const script = document.createElement('script')
       script.src = 'https://checkout.razorpay.com/v1/checkout.js'
       script.onload = () => resolve(true)
@@ -191,10 +189,16 @@ export default function Pricing() {
   const handlePayment = async () => {
     if (!validateBilling()) return
 
+    if (!RAZORPAY_KEY_ID) {
+      alert('Razorpay key is missing. Please restart the app after updating the .env file.')
+      return
+    }
+
     setLoading(true)
+
     const scriptLoaded = await loadRazorpayScript()
     if (!scriptLoaded) {
-      alert('Razorpay Checkout failed to load. Please verify your internet connection and try again.')
+      alert('Razorpay failed to load. Check your internet connection.')
       setLoading(false)
       return
     }
@@ -202,53 +206,74 @@ export default function Pricing() {
     const rawPrice = getSelectedPrice()
     const numericPrice = parseInt(rawPrice.replace(/[^0-9]/g, ''), 10)
 
-    const options = {
-      key: 'rzp_test_dummykey123', // Dummy key for client-side demo sandbox
-      amount: numericPrice * 100, // Amount in paise
-      currency: 'INR',
-      name: 'Trade Nexus',
-      description: `${selectedPlan.category} - ${selectedDuration} Subscription`,
-      image: logo,
-      handler: function (response) {
-        setPaymentId(response.razorpay_payment_id || `pay_${Math.random().toString(36).substring(2, 11)}`)
-        setReceiptId(`REC-TN-${Math.floor(100000 + Math.random() * 900000)}`)
-        setTxDate(new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }))
-        setStep(3)
-        setLoading(false)
-      },
-      prefill: {
-        name: billingInfo.name,
-        email: billingInfo.email,
-        contact: billingInfo.phone,
-      },
-      notes: {
-        state: billingInfo.state,
-        pan: billingInfo.pan.toUpperCase(),
-      },
-      theme: {
-        color: '#00d4ff',
-      },
-      modal: {
-        ondismiss: function () {
-          setLoading(false)
-        }
-      }
-    }
-
     try {
+      // Step 1: Create order from backend
+      const orderRes = await fetch(`${API_BASE_URL}/payment/create-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: numericPrice,
+          plan_category: selectedPlan.category,
+          plan_duration: selectedDuration,
+          customer: {
+            name: billingInfo.name,
+            email: billingInfo.email,
+            phone: billingInfo.phone,
+            state: billingInfo.state,
+            pan: billingInfo.pan.toUpperCase(),
+          },
+        }),
+      })
+      const orderData = await orderRes.json()
+      if (!orderRes.ok) throw new Error(orderData.error || 'Order creation failed')
+
+      // Step 2: Open Razorpay checkout
+      const options = {
+        key: RAZORPAY_KEY_ID,
+        amount: numericPrice * 100,
+        currency: 'INR',
+        name: 'Trade Nexus',
+        description: `${selectedPlan.category} — ${selectedDuration}`,
+        image: logo,
+        order_id: orderData.order_id,
+        handler: async function (response) {
+          // Step 3: Verify payment on backend
+          const verifyRes = await fetch(`${API_BASE_URL}/payment/verify`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            }),
+          })
+          const verifyData = await verifyRes.json()
+          if (verifyData.success) {
+            setPaymentId(response.razorpay_payment_id)
+            setReceiptId(orderData.receipt_id)
+            setTxDate(new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }))
+            setStep(3)
+          } else {
+            alert('Payment verification failed. Please contact support.')
+          }
+          setLoading(false)
+        },
+        prefill: {
+          name: billingInfo.name,
+          email: billingInfo.email,
+          contact: billingInfo.phone,
+        },
+        notes: { state: billingInfo.state, pan: billingInfo.pan.toUpperCase() },
+        theme: { color: '#00d4ff' },
+        modal: { ondismiss: () => setLoading(false) },
+      }
+
       const rzp = new window.Razorpay(options)
       rzp.open()
     } catch (err) {
-      console.error('Razorpay initialization error: ', err)
-      alert('Could not initialize Razorpay checkout. Running fallback mock transaction.')
-      // Fallback for simulation
-      setTimeout(() => {
-        setPaymentId(`pay_mock_${Math.random().toString(36).substring(2, 11)}`)
-        setReceiptId(`REC-TN-${Math.floor(100000 + Math.random() * 900000)}`)
-        setTxDate(new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }))
-        setStep(3)
-        setLoading(false)
-      }, 1500)
+      console.error('Payment error:', err)
+      alert(err.message || 'Payment failed. Please try again.')
+      setLoading(false)
     }
   }
 
@@ -551,12 +576,14 @@ export default function Pricing() {
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                <strong className="plan-name-text">{selectedPlan.category}</strong>
-                                <span className="gst-disclosure">Includes SGST (9%) & CGST (9%)</span>
+                              <td data-label="Description">
+                                <div className="receipt-plan-cell">
+                                  <strong className="plan-name-text">{selectedPlan.category}</strong>
+                                  <span className="gst-disclosure">Includes SGST (9%) & CGST (9%)</span>
+                                </div>
                               </td>
-                              <td>{selectedDuration}</td>
-                              <td className="text-right bold-price">{getSelectedPrice()}</td>
+                              <td data-label="Duration">{selectedDuration}</td>
+                              <td data-label="Total Amount" className="text-right bold-price">{getSelectedPrice()}</td>
                             </tr>
                           </tbody>
                         </table>

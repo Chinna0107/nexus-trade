@@ -705,6 +705,7 @@ select.form-input option {
 
 .receipt-view-wrapper {
   animation: fadeInReceipt 0.5s ease forwards;
+  width: 100%;
 }
 
 @keyframes fadeInReceipt {
@@ -816,6 +817,8 @@ select.form-input option {
   font-weight: 600;
   color: #2d3748;
   margin-top: 4px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .meta-val.highlight-val {
@@ -871,6 +874,10 @@ select.form-input option {
   color: #1a202c;
 }
 
+.receipt-plan-cell {
+  min-width: 0;
+}
+
 .gst-disclosure {
   display: block;
   font-size: 10px;
@@ -921,6 +928,8 @@ select.form-input option {
   color: #1a202c;
   font-weight: 700;
   margin-top: 2px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .pan-code-format {
@@ -1047,6 +1056,12 @@ select.form-input option {
   }
   .checkout-modal-backdrop {
     padding: 12px;
+    align-items: flex-start;
+  }
+  .checkout-modal-container {
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    border-radius: 18px;
   }
   .checkout-modal-body {
     padding: 20px;
@@ -1057,6 +1072,9 @@ select.form-input option {
   .receipt-document-block {
     padding: 20px;
   }
+  .receipt-doc-header {
+    align-items: flex-start;
+  }
   .receipt-meta-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -1066,5 +1084,148 @@ select.form-input option {
   }
   .info-item.full-width-info {
     grid-column: span 1;
+  }
+  .receipt-view-wrapper .modal-footer-actions {
+    flex-direction: column-reverse;
+  }
+  .receipt-view-wrapper .modal-footer-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .checkout-modal-backdrop {
+    padding: 8px;
+  }
+
+  .checkout-modal-container {
+    max-height: calc(100dvh - 16px);
+    border-radius: 16px;
+  }
+
+  .checkout-modal-body {
+    padding: 14px;
+  }
+
+  .receipt-card-frame {
+    border-radius: 14px;
+  }
+
+  .receipt-success-banner {
+    padding: 20px 16px;
+  }
+
+  .check-success-glow {
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+
+  .receipt-success-banner h4 {
+    font-size: 17px;
+  }
+
+  .receipt-success-banner p {
+    max-width: 260px;
+    margin: 0 auto;
+    line-height: 1.45;
+  }
+
+  .receipt-document-block {
+    padding: 16px;
+  }
+
+  .receipt-doc-header {
+    gap: 12px;
+  }
+
+  .receipt-logo-wrap {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .receipt-header-text h5 {
+    font-size: 16px;
+  }
+
+  .receipt-header-text span {
+    display: block;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .receipt-divider {
+    margin: 16px 0;
+  }
+
+  .receipt-details-table {
+    margin-top: 18px;
+  }
+
+  .receipt-items-table,
+  .receipt-items-table thead,
+  .receipt-items-table tbody,
+  .receipt-items-table tr,
+  .receipt-items-table th,
+  .receipt-items-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .receipt-items-table thead {
+    display: none;
+  }
+
+  .receipt-items-table tr {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .receipt-items-table td {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: right;
+  }
+
+  .receipt-items-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .receipt-items-table td::before {
+    content: attr(data-label);
+    flex: 0 0 42%;
+    color: #718096;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .receipt-items-table td:first-child {
+    align-items: flex-start;
+  }
+
+  .receipt-plan-cell {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .receipt-items-table .text-right {
+    text-align: right;
+  }
+
+  .billing-info-grid {
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .receipt-footer-clause {
+    margin-top: 18px;
   }
 }

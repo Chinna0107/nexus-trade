@@ -12,7 +12,8 @@ import {
   FaTimes,
   FaUserShield,
   FaChevronRight,
-  FaGlobe
+  FaGlobe,
+  FaExchangeAlt
 } from 'react-icons/fa'
 import { logout } from '../utils/auth'
 import DashboardHome from './dashboard/DashboardHome'
@@ -20,6 +21,8 @@ import OfferLetterDoc from './dashboard/OfferLetterDoc'
 import InvoiceDoc from './dashboard/InvoiceDoc'
 import PaySlipDoc from './dashboard/PaySlipDoc'
 import AppointmentLetterDoc from './dashboard/AppointmentLetterDoc'
+import Transactions from './dashboard/Transactions'
+import './dashboard/Transactions.css'
 import logo from '../assets/logo.jpeg'
 import './Dashboard.css'
 
@@ -29,11 +32,12 @@ export default function Dashboard() {
   const navigate = useNavigate()
 
   const menuItems = [
-    { id: 'home', label: 'Overview Home', icon: FaChartPie },
-    { id: 'offer-letter', label: 'Offer Letter', icon: FaFileSignature },
-    { id: 'invoice', label: 'Invoice Print', icon: FaFileInvoiceDollar },
-    { id: 'pay-slip', label: 'Pay Slip', icon: FaMoneyCheckAlt },
-    { id: 'appointment-letter', label: 'Appointment Contract', icon: FaFileContract },
+    { id: 'home',                label: 'Overview Home',        icon: FaChartPie },
+    { id: 'transactions',        label: 'Transactions',          icon: FaExchangeAlt },
+    { id: 'offer-letter',        label: 'Offer Letter',          icon: FaFileSignature },
+    { id: 'invoice',             label: 'Invoice Print',         icon: FaFileInvoiceDollar },
+    { id: 'pay-slip',            label: 'Pay Slip',              icon: FaMoneyCheckAlt },
+    { id: 'appointment-letter',  label: 'Appointment Contract',  icon: FaFileContract },
   ]
 
   const handleLogout = () => {
@@ -48,6 +52,8 @@ export default function Dashboard() {
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'transactions':
+        return <Transactions />
       case 'home':
         return <DashboardHome setTab={setActiveTab} />
       case 'offer-letter':
