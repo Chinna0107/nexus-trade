@@ -134,9 +134,9 @@ export default function Home({ onNavigate }) {
 
             <div className="relative rounded-3xl overflow-hidden border border-[#00d4ff]/30 shadow-[0_0_60px_rgba(0,212,255,0.35)]">
               <img
-                src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1200&auto=format&fit=crop"
+                src="https://plus.unsplash.com/premium_photo-1682310075673-b408eb1ca6fd?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhZGluZ3xlbnwwfHwwfHx8MA%3D%3D"
                 alt="trading"
-                className="w-full h-auto"
+                className="w-full h-[320px] sm:h-[420px] lg:h-[560px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#08111f]/70 to-transparent" />
             </div>
