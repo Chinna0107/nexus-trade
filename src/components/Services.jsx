@@ -159,7 +159,7 @@ export default function Services({ onNavigate }) {
                       ))}
                     </ul>
 
-                    <button className="service-button">Get Started</button>
+                    <button className="service-button" onClick={() => onNavigate('contact')}>Get Started</button>
                   </div>
                 </div>
               )

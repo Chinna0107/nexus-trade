@@ -95,13 +95,7 @@ export default function Complaint() {
                   </div>
                 </div>
 
-                <div className="field">
-                  <label>Attachments <span className="optional">(optional)</span></label>
-                  <label className="file-drop">
-                    <span className="file-drop-text">📎 Click to attach files (images, PDF, DOC)</span>
-                    <input type="file" multiple accept="image/*,.pdf,.doc,.docx" />
-                  </label>
-                </div>
+                
 
                 <button type="submit" className="submit-btn whatsapp-btn">
                   <FaWhatsapp />

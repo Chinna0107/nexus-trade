@@ -270,15 +270,15 @@
 /* A4 Page structure simulation on screen */
 .a4-page-frame {
   width: 794px;
-  min-height: 1123px;
+  height: 1123px;
+  max-height: 1123px;
   background: #ffffff;
   color: #1f2937;
-  padding: 48px;
+  padding: 28px 36px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   box-sizing: border-box;
   overflow: hidden;
   flex-shrink: 0;
@@ -579,6 +579,26 @@
 .reference-form-page {
   font-family: Arial, Helvetica, sans-serif;
   color: #000000;
+  position: relative;
+}
+
+/* WATERMARK */
+.payslip-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: 52px;
+  font-weight: 900;
+  color: rgba(14, 17, 52, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 4px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .reference-form-content {
@@ -590,19 +610,20 @@
 
 .reference-company-title {
   text-align: center;
-  font-size: 25px;
-  line-height: 1.15;
+  font-size: 18px;
+  line-height: 1.1;
   font-weight: 900;
-  margin: 0 0 24px 0;
+  margin: 0 0 6px 0;
   color: #000000;
 }
 
 .reference-document-title {
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 13px;
+  line-height: 1.1;
   font-weight: 900;
-  margin: 0 0 38px 0;
+  margin: 0 0 10px 0;
   color: #000000;
+  text-align: center;
 }
 
 .reference-grid-table {
@@ -613,15 +634,16 @@
 
 .reference-grid-table th,
 .reference-grid-table td {
-  border: 1.6px solid #111111;
-  padding: 9px 10px;
-  font-size: 14px;
-  line-height: 1.25;
+  border: 1px solid #111111;
+  padding: 4px 7px;
+  font-size: 11px;
+  line-height: 1.2;
   color: #000000;
 }
 
 .reference-grid-table th {
-  background: #d3d3d3;
+  background: #0e1134;
+  color: #ffffff;
   font-weight: 700;
   text-align: left;
 }
@@ -630,9 +652,110 @@
   font-weight: 500;
 }
 
+/* ===== BRANDED HEADER ===== */
+.payslip-doc-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+}
+
+.payslip-doc-logo-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, #0e1134, #42b2bd);
+  flex-shrink: 0;
+}
+
+.payslip-doc-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.payslip-doc-brand {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.payslip-doc-brand-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0e1134;
+  margin: 0;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.payslip-doc-brand-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: #42b2bd;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.payslip-doc-title-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.payslip-doc-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0e1134;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.payslip-doc-month {
+  font-size: 11px;
+  font-weight: 600;
+  color: #42b2bd;
+  letter-spacing: 1px;
+}
+
+.payslip-doc-divider {
+  height: 3px;
+  background: linear-gradient(90deg, #0e1134, #42b2bd, #00d4ff);
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+/* ===== ENHANCED TABLE COLORS ===== */
+.payslip-salary-table tbody tr:nth-child(odd) td {
+  background: rgba(14, 17, 52, 0.03);
+}
+
+.payslip-salary-table tbody tr:last-child td,
+.payslip-salary-table tbody tr:nth-last-child(2) td {
+  background: #0e1134;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.payslip-salary-table tbody tr:last-child td:nth-child(2),
+.payslip-salary-table tbody tr:nth-last-child(2) td:nth-child(2) {
+  color: #00d4ff;
+}
+
+.payslip-salary-table tbody tr:last-child td:nth-child(4),
+.payslip-salary-table tbody tr:nth-last-child(2) td:nth-child(4) {
+  color: #f87171;
+}
+
 .payslip-month-line {
-  font-size: 14px;
-  margin: 0 0 22px 0;
+  font-size: 11px;
+  margin: 0 0 8px 0;
 }
 
 .payslip-month-line strong {
@@ -642,13 +765,13 @@
 .payslip-month-line span {
   border-bottom: 1px solid #111111;
   display: inline-block;
-  min-width: 150px;
-  padding-left: 6px;
+  min-width: 120px;
+  padding-left: 4px;
 }
 
 .payslip-employee-table {
-  width: 92%;
-  margin: 0 auto 34px auto;
+  width: 94%;
+  margin: 0 auto 10px auto;
 }
 
 .payslip-employee-table th {
@@ -660,8 +783,8 @@
 }
 
 .payslip-salary-table {
-  width: 92%;
-  margin: 0 auto 42px auto;
+  width: 94%;
+  margin: 0 auto 10px auto;
 }
 
 .payslip-salary-table th {
@@ -670,7 +793,7 @@
 
 .payslip-salary-table td:nth-child(2),
 .payslip-salary-table td:nth-child(4) {
-  width: 19%;
+  width: 18%;
   text-align: center;
 }
 
@@ -683,16 +806,17 @@
 }
 
 .reference-detail-block {
-  font-size: 14px;
-  line-height: 1.25;
-  margin: 0 0 46px 0;
+  font-size: 11px;
+  line-height: 1.3;
+  margin: 0 0 8px 0;
   color: #000000;
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .reference-detail-block strong {
-  font-size: 15px;
+  font-size: 11px;
   font-weight: 900;
 }
 
@@ -703,36 +827,36 @@
 .reference-signature-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 40px;
   text-align: center;
   margin-top: auto;
-  padding: 8px 76px 0 76px;
+  padding: 6px 60px 0 60px;
 }
 
 .reference-signature-row div {
   display: flex;
-  min-height: 118px;
+  min-height: 60px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
 .reference-signature-row strong {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 900;
 }
 
 .reference-signature-row span {
-  width: 150px;
-  border-top: 1.5px solid #111111;
+  width: 130px;
+  border-top: 1px solid #111111;
 }
 
 .reference-footer-note {
   display: flex;
   flex-direction: column;
-  margin-top: 34px;
-  font-size: 14px;
-  line-height: 1.25;
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.2;
 }
 
 .reference-footer-note strong {
@@ -758,10 +882,18 @@
     box-shadow: none !important;
   }
   .a4-page-frame {
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
     box-shadow: none !important;
     border: none !important;
-    margin: 0 auto !important;
-    page-break-after: always !important;
-    padding: 18mm 14mm !important;
+    margin: 0 !important;
+    padding: 10mm 12mm !important;
+    page-break-after: avoid !important;
+  }
+  @page {
+    size: A4;
+    margin: 0;
   }
 }

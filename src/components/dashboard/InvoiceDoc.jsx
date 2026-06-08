@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FaPrint, FaChevronLeft, FaUndo, FaPlus, FaTrash, FaCheckCircle, FaUser, FaFileInvoiceDollar, FaCalendarAlt } from 'react-icons/fa'
 import { printDashboardDocument } from '../../utils/printDocument'
+import logo from '../../assets/logo.jpeg'
 import './InvoiceDoc.css'
 
 export default function InvoiceDoc({ setTab }) {
@@ -350,17 +351,25 @@ export default function InvoiceDoc({ setTab }) {
             className="a4-page-frame reference-form-page invoice-reference-page"
           >
             <div className="reference-form-content">
-              <h1 className="reference-company-title">TRADE NEXUS TRADE SMART</h1>
-              <h2 className="reference-document-title">SERVICE REGISTRATION & PROFIT SHARING INVOICE</h2>
+              <div className="invoice-doc-header">
+                <div className="invoice-doc-logo-wrap">
+                  <img src={logo} alt="Trade Nexus" className="invoice-doc-logo" />
+                </div>
+                <div className="invoice-doc-brand">
+                  <h1 className="invoice-doc-brand-name">TRADE NEXUS</h1>
+                  <span className="invoice-doc-brand-sub">TRADE SMART</span>
+                  <span className="invoice-doc-sebi">SEBI Reg: INH200008024</span>
+                </div>
+                <div className="invoice-doc-title-col">
+                  <h2 className="invoice-doc-title">INVOICE</h2>
+                  <span className="invoice-doc-no">#{invoiceNo}</span>
+                  <span className="invoice-doc-date">{formatDate(invoiceDate)}</span>
+                </div>
+              </div>
+              <div className="invoice-doc-divider" />
 
               <table className="reference-grid-table invoice-meta-table">
                 <tbody>
-                  <tr>
-                    <th>Invoice No</th>
-                    <td>{invoiceNo}</td>
-                    <th>Date</th>
-                    <td>{formatDate(invoiceDate)}</td>
-                  </tr>
                   <tr>
                     <th>Client Name</th>
                     <td>{clientName}</td>

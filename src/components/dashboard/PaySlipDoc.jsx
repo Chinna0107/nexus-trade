@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FaPrint, FaChevronLeft, FaUndo, FaUser, FaBriefcase, FaCalendarAlt } from 'react-icons/fa'
 import { printDashboardDocument } from '../../utils/printDocument'
+import logo from '../../assets/logo.jpeg'
 import './PaySlipDoc.css'
 
 export default function PaySlipDoc({ setTab }) {
@@ -55,6 +56,11 @@ export default function PaySlipDoc({ setTab }) {
     str += (parseInt(match[5]) !== 0) ? (words(match[5]) + '') : ''
     
     return str.trim() ? str.trim() + ' Rupees Only' : 'Zero Rupees Only'
+  }
+
+  const getTodayFormatted = () => {
+    const d = new Date()
+    return `${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')}-${d.getFullYear()}`
   }
 
   const handleReset = () => {
@@ -365,13 +371,22 @@ export default function PaySlipDoc({ setTab }) {
             id="print-sheet-payslip"
             className="a4-page-frame reference-form-page payslip-reference-page"
           >
+            <div className="payslip-watermark">TRADE NEXUS<br/>TRADE SMART</div>
             <div className="reference-form-content">
-              <h1 className="reference-company-title">TRADE NEXUS TRADE SMART</h1>
-              <h2 className="reference-document-title">EMPLOYEE PAYSLIP FORMAT</h2>
-
-              <div className="payslip-month-line">
-                <strong>Salary Month:</strong> <span>{monthYear}</span>
+              <div className="payslip-doc-header">
+                <div className="payslip-doc-logo-wrap">
+                  <img src={logo} alt="Trade Nexus" className="payslip-doc-logo" />
+                </div>
+                <div className="payslip-doc-brand">
+                  <h1 className="payslip-doc-brand-name">TRADE NEXUS</h1>
+                  <span className="payslip-doc-brand-sub">TRADE SMART</span>
+                </div>
+                <div className="payslip-doc-title-col">
+                  <h2 className="payslip-doc-title">PAY SLIP</h2>
+                  <span className="payslip-doc-month">{monthYear}</span>
+                </div>
               </div>
+              <div className="payslip-doc-divider" />
 
               <table className="reference-grid-table payslip-employee-table">
                 <tbody>
@@ -460,7 +475,7 @@ export default function PaySlipDoc({ setTab }) {
 
               <div className="reference-footer-note">
                 <strong>TRADE NEXUS TRADE SMART</strong>
-                <span>Generated on: 22-05-2026</span>
+                <span>Generated on: {getTodayFormatted()}</span>
               </div>
             </div>
           </div>

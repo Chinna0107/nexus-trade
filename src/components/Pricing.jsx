@@ -8,7 +8,7 @@ const pricingData = [
   {
     category: 'Stock cash',
     plans: [
-      { duration: 'Monthly', price: '₹ 1/-' },
+      { duration: 'Monthly', price: '₹ 17000/-' },
       { duration: 'Quarterly', price: '₹ 44500/-' },
       { duration: 'Half Yearly', price: '₹ 91800/-' },
       { duration: 'Yearly', price: '₹ 165000/-' },

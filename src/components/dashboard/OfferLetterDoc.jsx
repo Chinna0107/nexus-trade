@@ -185,7 +185,7 @@ export default function OfferLetterDoc({ setTab }) {
 
             {/* Large faint background watermark */}
             <div className="a4-watermark">
-              <img src={logo} alt="Trade Nexus Watermark" />
+              TRADE NEXUS<br/>TRADE SMART
             </div>
 
             {/* Letter Content wrapper */}

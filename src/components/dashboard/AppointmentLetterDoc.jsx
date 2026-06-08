@@ -11,7 +11,7 @@ export default function AppointmentLetterDoc({ setTab }) {
   const [annualCtc, setAnnualCtc] = useState(600000)
   const [probationMonths, setProbationMonths] = useState(6)
   const [date, setDate] = useState('2026-05-22')
-  const [hrManager, setHrManager] = useState('Ravi Kumar J')
+  const [hrManager, setHrManager] = useState('E Suchithra')
 
   const handleReset = () => {
     setCandidateName('Rohan Sharma')
@@ -20,7 +20,7 @@ export default function AppointmentLetterDoc({ setTab }) {
     setAnnualCtc(600000)
     setProbationMonths(6)
     setDate('2026-05-22')
-    setHrManager('Ravi Kumar J')
+    setHrManager('E Suchithra')
   }
 
   const handlePrint = () => {

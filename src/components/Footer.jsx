@@ -74,7 +74,10 @@ export default function Footer() {
           <ul style={styles.list}>
             {services.map(s => (
               <li key={s}>
-                <a href="#services" style={styles.footerLink}
+                <a
+                  href="/services"
+                  style={styles.footerLink}
+                  onClick={(e) => { e.preventDefault(); navigate('/services'); window.scrollTo({ top: 0, behavior: 'instant' }) }}
                   onMouseEnter={e => { e.currentTarget.style.color = '#00d4ff'; e.currentTarget.style.paddingLeft = '6px' }}
                   onMouseLeave={e => { e.currentTarget.style.color = '#9ca3af'; e.currentTarget.style.paddingLeft = '0' }}
                 >
@@ -88,7 +91,7 @@ export default function Footer() {
         <div style={styles.col}>
           <h4 style={styles.colTitle}>Contact Us</h4>
           {[
-            { icon: '📍', content: 'HSR Layout, 7th Sector,\nNear 5th Main Road,\nNear Reliance Digital,\nBangalore – 560102', isText: true },
+            { icon: '📍', content: '4th Phase JP Nagar ,\n Near Reliance digital,\nBangalore – 560078', isText: true },
             { icon: '📞', content: '+91 919483001083', href: 'tel:+91919483001083' },
             { icon: '✉️', content: 'info@tradenexustradesmart.com', href: 'mailto:info@tradenexustradesmart.com' },
           ].map((item, i) => (
