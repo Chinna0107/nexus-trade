@@ -11,6 +11,10 @@ import Complaint from './components/Complaint'
 import ProtectedRoute from './components/ProtectedRoute'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import TermsConditions from './components/TermsConditions'
+import RefundPolicy from './components/RefundPolicy'
+import Disclaimer from './components/Disclaimer'
 import './App.css'
 
 const pageTitles = {
@@ -22,6 +26,10 @@ const pageTitles = {
   '/complaints': 'Submit a Complaint | Trade Nexus',
   '/login':      'Admin Login | Trade Nexus',
   '/dashboard':  'Admin Dashboard | Trade Nexus - Trade Smart',
+  '/privacy-policy': 'Privacy Policy | Trade Nexus',
+  '/terms-conditions': 'Terms & Conditions | Trade Nexus',
+  '/refund-policy': 'Refund & Cancellation Policy | Trade Nexus',
+  '/disclaimer': 'Legal Disclaimer | Trade Nexus',
 }
 
 const pageDescriptions = {
@@ -33,6 +41,10 @@ const pageDescriptions = {
   '/complaints': 'Submit a complaint to Trade Nexus. We acknowledge all complaints within 24 hours and resolve within 7-14 business days.',
   '/login':      'Secure administration login for Trade Nexus.',
   '/dashboard':  'Trade Nexus administration and document portal.',
+  '/privacy-policy': 'Privacy Policy of Trade Nexus - Learn how we collect, use, and protect your data.',
+  '/terms-conditions': 'Terms and Conditions for using Trade Nexus research services and platform.',
+  '/refund-policy': 'Refund and Cancellation Policy for Trade Nexus subscriptions and services.',
+  '/disclaimer': 'Legal and SEBI regulatory disclaimer for Trade Nexus research recommendations.',
 }
 
 const pageRoutes = {
@@ -44,6 +56,10 @@ const pageRoutes = {
   complaints: '/complaints',
   login:      '/login',
   dashboard:  '/dashboard',
+  privacyPolicy: '/privacy-policy',
+  termsConditions: '/terms-conditions',
+  refundPolicy: '/refund-policy',
+  disclaimer: '/disclaimer',
 }
 
 function AppContent() {
@@ -79,6 +95,10 @@ function AppContent() {
         <Route path="/complaints" element={<Complaint />} />
         <Route path="/login"      element={<Login />} />
         <Route path="/dashboard"  element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*"           element={<Home onNavigate={handleNavigate} />} />
       </Routes>
       {!isAdminRoute && <Footer />}

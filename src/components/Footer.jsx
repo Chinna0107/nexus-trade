@@ -115,11 +115,17 @@ export default function Footer() {
       <div style={styles.bottom}>
         <p style={styles.copy}>© {new Date().getFullYear()} Trade Nexus - Trade Smart. All rights reserved.</p>
         <div style={styles.bottomLinks}>
-          {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map(item => (
-            <a key={item} href="#" style={styles.bottomLink}
+          {[
+            { label: 'Privacy Policy', path: '/privacy-policy' },
+            { label: 'Terms & Conditions', path: '/terms-conditions' },
+            { label: 'Refund Policy', path: '/refund-policy' },
+            { label: 'Disclaimer', path: '/disclaimer' }
+          ].map(item => (
+            <a key={item.label} href={item.path} style={styles.bottomLink}
+              onClick={(e) => { e.preventDefault(); navigate(item.path); window.scrollTo({ top: 0, behavior: 'instant' }) }}
               onMouseEnter={e => { e.currentTarget.style.color = '#00d4ff' }}
               onMouseLeave={e => { e.currentTarget.style.color = '#6b7280' }}
-            >{item}</a>
+            >{item.label}</a>
           ))}
         </div>
       </div>
