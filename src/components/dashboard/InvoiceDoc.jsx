@@ -358,7 +358,7 @@ export default function InvoiceDoc({ setTab }) {
                 <div className="invoice-doc-brand">
                   <h1 className="invoice-doc-brand-name">TRADE NEXUS</h1>
                   <span className="invoice-doc-brand-sub">TRADE SMART</span>
-                  <span className="invoice-doc-sebi">SEBI Reg: INH200008024</span>
+                  {/* <span className="invoice-doc-sebi">SEBI Reg: INH200008024</span> */}
                 </div>
                 <div className="invoice-doc-title-col">
                   <h2 className="invoice-doc-title">INVOICE</h2>
