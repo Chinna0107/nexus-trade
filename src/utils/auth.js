@@ -1,5 +1,5 @@
 // Authentication utility for Trade Nexus Admin Portal
-const ADMIN_EMAIL = 'ceoo@tradenexustradesmart.com';
+const ADMIN_EMAIL = 'ceo@tradenexustradesmart.com';
 const ADMIN_PASSWORD = 'Admin@tradesmart';
 const AUTH_KEY = 'trade_nexus_admin_authenticated';
 
